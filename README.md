@@ -10,12 +10,12 @@ Usually, most ML projects jump right into using libraries such as PyTorch or sci
 
 ## Timeline
 
-**Week 1 (Jan 17 - Jan 23):** Linear Regression
-**Week 2 (Jan 24 - Jan 30):** Logistic Regression
-**Week 3 (Jan 31 - Feb 6):** K-means Clustering
-**Week 4 (Feb 7 - Feb 13):** Neural Networks
-**Week 5 (Feb 14 - Feb 20):** PyTorch Comparison
-**Week 6 (Feb 21 - Feb 27):** MNIST Challenge
+ - **Week 1 (Jan 17 - Jan 23):** Linear Regression
+ - **Week 2 (Jan 24 - Jan 30):** Logistic Regression
+ - **Week 3 (Jan 31 - Feb 6):** K-means Clustering
+ - **Week 4 (Feb 7 - Feb 13):** Neural Networks
+ - **Week 5 (Feb 14 - Feb 20):** PyTorch Comparison
+ - **Week 6 (Feb 21 - Feb 27):** MNIST Challenge
 
 ## Background
 
