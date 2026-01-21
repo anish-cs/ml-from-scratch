@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 class LinearRegression:
-    def __init__(self, learning_rate = 0.01, n=1000):
+    def __init__(self, learning_rate = 0.1, n=1000):
         self.lr = learning_rate
         self.n = n
         self.weights = None
@@ -21,7 +21,7 @@ class LinearRegression:
             dw = (2/n_samp) * X.T @ (y_pred - y) #take partial derivatives of loss function
             db = (2/n_samp) * np.sum(y_pred - y) 
 
-            self.weights -= self.lr * dw #negative so it converges.
+            self.weights += self.lr * dw #negative so it converges.
 
             self.bias -= self.lr * db
         
@@ -43,13 +43,23 @@ if __name__ == "__main__":
     print("Learned weight:", model.weights)
     print("Learned bias:", model.bias)
     print("R square value", model.find_R2(model.weights, model.bias))
-    plt.scatter(X,y)
+    print(model.losses[-1])
+   
 
     X_line = np.linspace(X.min(), X.max(), 100).reshape(-1, 1)
     y_line = model.predict(X_line)
-    plt.plot(X_line, y_line)
-    plt.xlabel("x")
-    plt.ylabel("y")
-    plt.title("Linear Regression Fit")
-    plt.show()
+    
+    fig, (ax1, ax2) = plt.subplots(1,2,figsize=(12,5))
+    ax1.scatter(X,y,color='blue', label='Data Points')
+    ax1.plot(X_line, y_line, color='red', label='Regression line')
+    ax1.set_xlabel('x')
+    ax1.set_ylabel('y')
+    ax1.set_title("Linear Regression fit")
+    ax1.legend()
 
+    ax2.plot(model.losses)
+    ax2.set_xlabel('Iterations')
+    ax2.set_ylabel('MSE')
+    ax2.set_title("Loss over time")
+    plt.tight_layout()
+    plt.show()
