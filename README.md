@@ -33,7 +33,10 @@ High school sophomore interested in AI and the theory side of CS. This is my fir
 &emsp;**Completed** 
 - Week 1 prep (learning linear algebra and statistics along with NumPy)
 - Week 1: Linear Regression fitting using gradient descent using NumPy and matplotlib
-&emsp;**In Progress**
+
+&emsp;
+**In Progress**
+
 - Week 2 prep (learning sigmoid function and its properties using NumPy and matplotlib)
 
 ---
