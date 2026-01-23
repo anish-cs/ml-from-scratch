@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 class LinearRegression:
-    def __init__(self, learning_rate = 0.1, n=1000):
+    def __init__(self, learning_rate = 0.1, n=800):
         self.lr = learning_rate
         self.n = n
         self.weights = None
@@ -21,7 +21,7 @@ class LinearRegression:
             dw = (2/n_samp) * X.T @ (y_pred - y) #take partial derivatives of loss function
             db = (2/n_samp) * np.sum(y_pred - y) 
 
-            self.weights += self.lr * dw #negative so it converges.
+            self.weights -= self.lr * dw #negative so it converges.
 
             self.bias -= self.lr * db
         
@@ -62,4 +62,6 @@ if __name__ == "__main__":
     ax2.set_ylabel('MSE')
     ax2.set_title("Loss over time")
     plt.tight_layout()
+    plt.grid(True)
+    plt.savefig('results.png')
     plt.show()
