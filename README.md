@@ -42,3 +42,19 @@ High school sophomore interested in AI and the theory side of CS. This is my fir
 ---
 
 *Last updated: January 21, 2026*
+---
+
+## Timeline Update 
+**Original Schedule:** Week 2 scheduled for Jan 24 - 30 and Week 5 scheduled for Feb 14 - Feb 20
+**Adjusted Schedule:** Week 2 postponed for Jan 31 - Feb 6. Rest of weeks pushed. Week 4 pushed one week after that such that Week 4 is Feb 21 - Feb 28and the rest are after that point for the next two weeks.
+
+**Reason:** Science Olympiad Invitational (Jan 31 & Feb 21) requires extra preparation time in the weeks before the competition.
+
+**Revised Timeline:**
+- Week 1: Linear Regression (completed)
+- Week 2: Logistic Regression (Jan 31 - Feb 6)
+- Week 3: K-Means (Feb 7 - Feb 13)
+- Week 4: Neural Networks (Feb 21 - Feb 27)
+- Week 5: PyTorch (Feb 28 - Mar 6)
+- Week 6: MNIST (Mar 7 - Mar 13)
+
