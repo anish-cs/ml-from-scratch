@@ -41,7 +41,7 @@ High school sophomore interested in AI and the theory side of CS. This is my fir
 
 ---
 
-*Last updated: January 21, 2026*
+
 ---
 
 ## Timeline Update 
@@ -58,3 +58,6 @@ High school sophomore interested in AI and the theory side of CS. This is my fir
 - Week 5: PyTorch (Feb 28 - Mar 6)
 - Week 6: MNIST (Mar 7 - Mar 13)
 
+--- 
+
+*Last updated: January 30, 2026*
