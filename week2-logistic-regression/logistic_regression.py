@@ -35,6 +35,25 @@ class LogisticRegression:
             if i % 100 == 0:
                 acc = np.mean((y_pred >= 0.5) == y)
                 print(f'Iteration {i}: Loss = {loss}, Acc={acc}')
+
+def plot_decision_bound(model, X, y):
+    h = 0.02
+    x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+    Z = model.predict(np.c_[xx.ravel(), yy.ravel()])
+    Z = Z.reshape(xx.shape)
+    plt.figure(figsize=(10,6))
+    plt.contourf(xx, yy, Z, alpha=0.3, cmap="RdBu")
+    plt.scatter(X[y==0, 0], X[y==0, 1], c="red", marker = 'o', label="Class 0", edgecolors='k')
+    plt.scatter(X[y==1, 0], X[y==1, 1], c='blue', marker='s', label='class 1', edgecolors='k')
+    plt.xlabel('feature 1')
+    plt.ylabel('feature 2')
+    plt.title('logistic regression decision boundary')
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+    plt.savefig("decision_boundary.png")
+    plt.show()
 if __name__ == "__main__":
     np.random.seed(42)
 
@@ -52,3 +71,16 @@ if __name__ == "__main__":
 
     y_pred = model.predict(X)
     print(f"\nfinal accuracy: {np.mean(y_pred == y)}")
+    plt.figure(figsize=(10,5))
+    plt.subplot(1,2,1)
+    plot_decision_bound(model, X,y)
+    plt.subplot(1,2,2)
+    plt.plot(model.losses)
+    plt.xlabel('Iteration')
+    plt.ylabel('Cross-entropy loss')
+    plt.title("Training loss")
+    plt.grid(True)
+
+    plt.tight_layout()
+    plt.savefig("results.png")
+    plt.show()
