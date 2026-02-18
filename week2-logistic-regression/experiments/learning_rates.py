@@ -12,7 +12,7 @@ y = np.concatenate([np.zeros(50), np.ones(50)])
 
 print("\nExperiment: learning rate sensitivity\n")
 
-learning_rates = [0.01,0.05,0.1,0.5,1.0]
+learning_rates = [0.1,0.5,1,5,10]
 results = []
 
 for lr in learning_rates:
