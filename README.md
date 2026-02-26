@@ -33,11 +33,13 @@ High school sophomore interested in AI and the theory side of CS. This is my fir
 &emsp;**Completed** 
 - Week 1 prep (learning linear algebra and statistics along with NumPy)
 - Week 1: Linear Regression fitting using gradient descent using NumPy and matplotlib
+- Week 2: Logistic Regression fitting using gradient descent with NumPy and matplotlib. using binary cross entropy loss instead of regular mean squared error.
+- Week 3: K-Means implementation of code.
 
 &emsp;
 **In Progress**
 
-- Week 2 prep (learning sigmoid function and its properties using NumPy and matplotlib)
+- Week 3 experiments (implemented k-means but need to experiment with different data samples)
 
 ---
 
@@ -46,7 +48,7 @@ High school sophomore interested in AI and the theory side of CS. This is my fir
 
 ## Timeline Update 
 **Original Schedule:** Week 2 scheduled for Jan 24 - 30 and Week 5 scheduled for Feb 14 - Feb 20
-**Adjusted Schedule:** Week 2 postponed for Jan 31 - Feb 6. Rest of weeks pushed. Week 4 pushed one week after that such that Week 4 is Feb 21 - Feb 28and the rest are after that point for the next two weeks.
+**Adjusted Schedule:** Week 2 postponed for Jan 31 - Feb 6. Rest of weeks pushed. Week 4 pushed one week after that such that Week 4 is Feb 21 - Feb 28 and the rest are after that point for the next two weeks.
 
 **Reason:** Science Olympiad Invitational (Jan 31 & Feb 21) requires extra preparation time in the weeks before the competition.
 
@@ -60,4 +62,4 @@ High school sophomore interested in AI and the theory side of CS. This is my fir
 
 --- 
 
-*Last updated: January 30, 2026*
+*Last updated: February 26, 2026*
