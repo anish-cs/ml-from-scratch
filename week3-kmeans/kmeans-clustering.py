@@ -8,19 +8,19 @@ class Kmeans:
         self.centroids = None
         self.labels = None
 
-    def euclidean_distance(self, point1, point2):
+    def euclidean_distance(self, point1, point2): #finds the straight line distance between points
         return np.sqrt(np.sum((point1 - point2)**2))
     
     def fit(self, X):
         n_samp, n_feat = X.shape
 
-        random_indices = np.random.choice(n_samp, self.K, replace = False)
+        random_indices = np.random.choice(n_samp, self.K, replace = False) #random initialization of centroids
         self.centroids = X[random_indices]
 
         print(f"Initialized {self.K} random centroids")
 
         for iteration in range(self.n):
-            self.labels = self._assign_clusters(X)
+            self.labels = self._assign_clusters(X) 
             old_centroids = self.centroids.copy()
             self.centroids = self._update_centroids(X)
 
@@ -50,6 +50,7 @@ class Kmeans:
                 new_centroids[cluster_index] = self.centroids[cluster_index]
         return new_centroids
     def _has_converged(self, old_centroids):
+        #checks if distances residuals between centroid is very close to 0
         distances = [self.euclidean_distance(self.centroids[i], old_centroids[i]) for i in range(self.K)]
         return np.all(np.array(distances) < 1e-10)
     
@@ -71,6 +72,7 @@ class Kmeans:
             
 
 if __name__ == "__main__":
+    #Visualize elbow point to find optimal amount of clusters
     k_range = range(1, 11)
     inertias = []
     np.random.seed(42)
@@ -117,7 +119,7 @@ if __name__ == "__main__":
     for i in range(3):
         count = np.sum(kmeans.labels == i)
         print(f"Cluster {i}: {count} points")
-    
+    #plot kmeans clustering against sample data
     plt.figure(figsize=(10, 8))
     colors = ['red', 'blue', 'green']
     
