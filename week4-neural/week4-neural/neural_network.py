@@ -9,18 +9,15 @@ class NeuralNetwork:
         self.W2 = np.random.randn(output, hidden) * 0.01
         self.b2 = np.zeros([output, 1])
     def relu(self, z):
-        return max(0, z)
+        return np.maximum(0, z)
     
     def relu_derivative(self, z):
-        if z >0:
-            return 1
-        else:
-            return 0
+        return (z>0).astype(float)
         
     def sigmoid(self,z):
         return 1/(1 + np.exp(-z))
     def sigmoid_derivative(self, z):
-        self.sigmoid(z)*(1-self.sigmoid(z))
+        return self.sigmoid(z)*(1-self.sigmoid(z))
 
     def forward_pass(self, X):
         z1 = self.W1 @ X + self.b1
@@ -35,3 +32,16 @@ print(nn.W1.shape)
 print(nn.b1.shape)
 print(nn.W2.shape)
 print(nn.b2.shape)
+
+
+
+X = np.array([[0.5, 0.3], [0.2, 0.8]])
+print("input")
+print(X.shape)
+try:
+    output,cache = nn.forward_pass(X)
+    print(output.shape)
+    print(output)
+    print("works")
+except Exception as e:
+    print(f"error: {e}")
