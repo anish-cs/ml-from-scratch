@@ -57,10 +57,10 @@ def plot_decision_bound(model, X, y):
 if __name__ == "__main__":
     np.random.seed(42)
 
-    X0 = np.random.randn(50, 2) + [-2, -2]
+    X0 = np.random.randn(50, 2) + [-0.5, -0.5]
     y0 = np.zeros(50)
 
-    X1 = np.random.randn(50, 2) + [2,2]
+    X1 = np.random.randn(50, 2) + [0.5,0.5]
     y1 = np.ones(50)
 
     X = np.vstack([X0,X1])
