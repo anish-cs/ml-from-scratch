@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 class NeuralNetwork:
     def __init__(self, input, output, hidden, lr=0.1):
         self.lr = lr
-        self.W1 = np.random.randn(hidden, input) * 0.01
+        self.W1 = np.random.randn(hidden, input) * np.sqrt(2/input) #kaimberg initialization using normal distribution
         self.b1 = np.zeros([hidden,1])
-        self.W2 = np.random.randn(output, hidden) * 0.01
+        self.W2 = np.random.randn(output, hidden) * np.sqrt(1 / hidden)
         self.b2 = np.zeros([output, 1])
     def relu(self, z):
         return np.maximum(0, z)
@@ -42,19 +42,19 @@ class NeuralNetwork:
         self.b2 -= self.lr * db2
 
     def train(self, X, y):
-        for i in range(10000):
+        for i in range(20000):
             a2, cache = self.forward_pass(X)
             self.backward_pass(X, y, cache)
 
             if i % 1000 == 0:
-                loss = np.mean((a2 - y) **2)
+                loss = -np.mean(y * np.log(a2 + 1e-7) + (1-y) * np.log(1 - a2 + 1e-7))
                 print(f'Iter: {i}, Loss: {loss}')
 
 
-    #TODO: backpropagation 
 
 
-nn = NeuralNetwork(input=2, hidden=4, output=1)
+
+nn = NeuralNetwork(input=2, hidden=32, output=1)
 print(nn.W1.shape)
 print(nn.b1.shape)
 print(nn.W2.shape)
@@ -77,7 +77,7 @@ print("binary predictions:")
 print(predictions)
 
 accuracy = np.mean(predictions == y)
-print("Accuracy:", accuracy)
+print("Accuracy (%):", accuracy * 100)
 
 def plot_boundary(nn, X, y):
     x_min, x_max = -0.5, 1.5
@@ -98,7 +98,8 @@ def plot_boundary(nn, X, y):
     plt.title("Decision Boundary")
     plt.xlabel("x1")
     plt.ylabel("x2")
-    plt.savefig("results.png")
+    plt.savefig("results.png", transparent=False)
+    print("Saved!")
     plt.show()
 
 plot_boundary(nn, X, y)
